@@ -1,0 +1,22 @@
+{
+  "name": "77diamonds",
+  "version": "1.0.0",
+  "description": "Test Automations with Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "smoke_headless_chrome": "cypress run --spec cypress/e2e/TC02.cy.js --browser chrome"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.3.3"
+  },
+  "devDependencies": {
+    "cypress-file-upload": "^5.0.8",
+    "cypress-mochawesome-reporter": "^3.6.1",
+    "cypress-multi-reporters": "^1.6.4",
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3"
+  }
+}
