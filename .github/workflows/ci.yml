@@ -15,6 +15,9 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v3
 
+      - name: Install Cypress
+         run: npm install cypress --save-dev
+
 
     - name: Install Dependencies
       run: npm install
@@ -29,7 +32,8 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v2
 
-  
+    - name: Install Cypress
+     run: npm install cypress --save-dev
 
     - name: Install Dependencies
       run: npm install
