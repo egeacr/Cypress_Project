@@ -26,19 +26,14 @@ jobs:
       run: npm run cypress:nightly
 
 
-  on_push_smoke_test:
+ jobs:
+  cypress-run:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v2
-
-    - name: Install Cypress
-     run: npm install cypress --save-dev
-
-    - name: Install Dependencies
-      run: npm install
-
-    - name: Run Cypress Smoke Test
-      run: npm run smoke_headless_chrome
-
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          start: npm start
     
