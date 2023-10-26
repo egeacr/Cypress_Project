@@ -1,39 +1,17 @@
-name: Cypress Test
+name: Cypress Tests
 
-on:
-  push:
-    branches:
-      - main
-
-  schedule:
-    - cron: '0 0 * * *'  # Her gece 12'de
+on: push
 
 jobs:
-  nightly_cypress_run:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
-
-      - name: Install Cypress
-         run: npm install cypress --save-dev
-
-
-    - name: Install Dependencies
-      run: npm install
-
-    - name: Run Cypress Nightly Tests
-      run: npm run cypress:nightly
-
-
- jobs:
   cypress-run:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
       - name: Cypress run
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v6
         with:
+          build: npm run build
           start: npm start
-    
