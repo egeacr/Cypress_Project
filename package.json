@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "smoke_headless_chrome": "cypress run --spec cypress/e2e/TC02.cy.js --browser chrome"
+    "smoke_headless_chrome": "cypress run --spec cypress/e2e/TC02.cy.js --browser chrome",
+    "cypress:nightly": "cypress run --spec cypress/e2e/TC04.cy.js"
+    
   },
   "author": "",
   "license": "ISC",

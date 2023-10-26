@@ -1,0 +1,47 @@
+name: Cypress Test
+
+on:
+  push:
+    branches:
+      - main
+
+  schedule:
+    - cron: '0 0 * * *'  # Her gece 12'de
+
+jobs:
+  nightly_cypress_run:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run Cypress Nightly Tests
+      run: npm run cypress:nightly
+
+
+  on_push_smoke_test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run Cypress Smoke Test
+      run: npm run smoke_headless_chrome
+
+    
